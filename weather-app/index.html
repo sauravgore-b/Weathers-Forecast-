@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyPulse — Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-icon">⛅</div>
+      <div class="loader-text">SkyPulse</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">⛅ SkyPulse</div>
+      <div class="header-right">
+        <button id="locationBtn" class="btn-icon" title="Use my location">📍</button>
+        <div class="search-wrap">
+          <input id="searchInput" type="text" placeholder="Search city..." autocomplete="off" />
+          <button id="searchBtn" class="btn-search">→</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ERROR BANNER -->
+    <div id="errorBanner" class="error-banner hidden">
+      <span id="errorMsg"></span>
+      <button onclick="document.getElementById('errorBanner').classList.add('hidden')">✕</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- CURRENT WEATHER -->
+      <section class="current-card" id="currentSection">
+        <div class="current-top">
+          <div class="location-info">
+            <h1 id="cityName">—</h1>
+            <p id="countryName" class="country"></p>
+            <p id="currentDate" class="date"></p>
+          </div>
+          <div class="weather-icon-big" id="weatherIconBig">⛅</div>
+        </div>
+        <div class="current-mid">
+          <div class="temp-display">
+            <span id="currentTemp" class="temp-huge">—</span>
+            <span class="temp-unit">°C</span>
+          </div>
+          <div class="condition-wrap">
+            <p id="currentCondition" class="condition">—</p>
+            <p id="feelsLike" class="feels-like">Feels like —°C</p>
+          </div>
+        </div>
+        <div class="current-stats">
+          <div class="stat">
+            <span class="stat-icon">💧</span>
+            <span class="stat-label">Humidity</span>
+            <span id="humidity" class="stat-val">—%</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">💨</span>
+            <span class="stat-label">Wind</span>
+            <span id="windSpeed" class="stat-val">— km/h</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">🌡️</span>
+            <span class="stat-label">Pressure</span>
+            <span id="pressure" class="stat-val">— hPa</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">👁️</span>
+            <span class="stat-label">Visibility</span>
+            <span id="visibility" class="stat-val">— km</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5-DAY FORECAST -->
+      <section class="forecast-section">
+        <h2 class="section-title">5-Day Forecast</h2>
+        <div class="forecast-grid" id="forecastGrid">
+          <!-- JS populated -->
+        </div>
+      </section>
+
+      <!-- HOURLY -->
+      <section class="hourly-section">
+        <h2 class="section-title">Today's Hourly</h2>
+        <div class="hourly-scroll" id="hourlyScroll">
+          <!-- JS populated -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Data from <a href="https://openweathermap.org" target="_blank">OpenWeatherMap</a> · SkyPulse Weather App</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
